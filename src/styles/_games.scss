@@ -1,0 +1,95 @@
+@use 'variables' as *;
+
+.games {
+    width: 100vw;
+    padding: 10vh 5vw;
+    display: block;
+    text-align: center;
+
+    h2 {
+        margin-bottom: 40px;
+    }
+
+    &__items {
+        display: flex;
+        justify-content: space-around;
+
+        &__item {
+            max-width: 18%;
+            border: none;
+            background-color: transparent;
+
+            &:hover {
+                cursor: pointer;
+
+                img {
+                    transform: translateY(-15px);
+                    box-shadow: 0 0 20px lighten($color: $effectImageColor, $amount: 20%);
+                    transition: transform .3s ease-in-out;
+                }
+            }
+
+            &--active {
+                img {
+                    transform: translateY(-15px);
+                    box-shadow: 0 0 20px lighten($color: $effectImageColor, $amount: 60%);
+                }
+            }
+
+            img {
+                pointer-events: none;
+                width: 100%;
+                border-radius: 10px;
+                transition: transform .3s ease-in-out;
+            }
+        }
+    }
+}
+
+@media screen and #{$breakMobile} {
+    .games {
+        &__items {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+
+            &__item {
+                max-width: 100%;
+
+                &:last-child {
+                    grid-column: span 2;
+                    max-width: 50%;
+                    margin: 0 auto;
+                }
+
+                img {
+                    margin-bottom: 24px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and #{$breakTablet} {
+    .games {
+        &__items {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 12px;
+
+            &__item {
+                max-width: 100%;
+                grid-column: span 2;
+
+                &:nth-child(4),
+                &:last-child {
+                    grid-column: span 3;
+                }
+
+                img {
+                    margin-bottom: 24px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,40 @@
+@use 'variables' as *;
+
+.footer {
+    width: 100vw;
+    padding: 2vh 5vw;
+    display: block;
+    text-align: center;
+    background-color: #000;
+
+    p {
+        transition: color .2s ease, transform .2s ease;
+
+        &:hover {
+            transform: translateY(-2px);
+            transition: color .2s ease, transform .2s ease;
+            color: #fff;
+        }
+    }
+
+    span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            height: 56px;
+            transition: transform .3s ease-in-out;
+
+            &:hover {
+                transform: scale(1.1);
+                transition: transform .3s ease-in-out;
+                cursor: pointer;
+            }
+
+            &:first-child {
+                margin-right: 36px;
+            }
+        }
+    }
+}

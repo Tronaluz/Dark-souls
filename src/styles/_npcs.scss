@@ -1,0 +1,140 @@
+@use 'variables' as *;
+
+.npcs {
+    width: 100vw;
+    padding: 10vh 5vw;
+    display: block;
+    text-align: center;
+
+    h2 {
+        margin-bottom: 40px;
+    }
+
+    &__tabs {
+        display: flex;
+        justify-content: center;
+
+        &__button {
+            border: none;
+            margin: 0 12px;
+            font-family: BebasNeue, sans-serif;
+            font-size: 26px;
+            background-color: transparent;
+            color: $secondaryTextColor;
+            transition: color .2s ease, transform .2s ease;
+
+            &--active {
+                transform: translateY(-2px);
+                color: $buttonTextColor;
+                text-decoration: underline;
+            }
+
+            &:hover {
+                transform: translateY(-2px);
+                transition: color .2s ease, transform .2s ease;
+                color: $buttonTextColor;
+                cursor: pointer;
+            }
+        }
+    }
+
+    &__list {
+        display: none;
+        margin-top: 24px;
+
+        &--active {
+            display: block;
+        }
+
+        &__item {
+            max-width: 100%;
+            list-style: none;
+
+            h3 {
+                margin: 24px 0;
+            }
+
+            &__images {
+                display: grid;
+                gap: 12px;
+                align-items: center;
+
+                &--1 {
+                    display: block;
+                    margin: 0 auto;
+                    width: 30%;
+                }
+
+                &--2 {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                &--3 {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+
+                img {
+                    max-width: 100%;
+                    max-height: 400px;
+                    border-radius: 10px;
+                    margin: 0 auto;
+                    transition: transform .3s ease-in-out;
+
+                    &:hover {
+                        transform: scale(1.03);
+                        box-shadow: 0 0 20px lighten($color: $effectImageColor, $amount: 20%);
+                        transition: transform .3s ease-in-out;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and #{$breakMobile} {
+    .npcs {
+        &__tabs {
+            display: block;
+        }
+
+        &__list {
+            &__item {
+                &__images {
+                    display: block;
+
+                    &--1 {
+                        width: 100%;
+                    }
+
+                    img {
+                        margin-bottom: 12px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and #{$breakTablet} {
+    .npcs {
+        &__tabs {
+            display: block;
+        }
+
+        &__list {
+            &__item {
+                &__images {
+                    display: block;
+
+                    &--1 {
+                        width: 100%;
+                    }
+
+                    img {
+                        margin-bottom: 12px;
+                    }
+                }
+            }
+        }
+    }
+}

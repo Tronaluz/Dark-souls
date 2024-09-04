@@ -1,0 +1,56 @@
+@use 'variables' as *;
+
+.about-lore {
+    width: 100vw;
+    padding: 10vh 5vw;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+
+    img {
+        margin: auto;
+        width: 40%;
+    }
+
+    &__text-section {
+        padding-left: 12px;
+        padding-right: 12px;
+        text-align: center;
+
+        h2 {
+            margin-bottom: 24px;
+        }
+
+        p {
+            span {
+                color: $linkTextColor;
+            }
+        }
+    }
+}
+
+@media screen and #{$breakMobile} {
+    .about-lore {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        img {
+            width: 260px;
+            margin-bottom: 10vw;
+        }
+    }
+}
+
+@media screen and #{$breakTablet} {
+    .about-lore {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        img {
+            width: 260px;
+            margin-bottom: 10vw;
+        }
+    }
+}

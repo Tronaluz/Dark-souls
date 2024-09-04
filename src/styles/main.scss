@@ -1,0 +1,84 @@
+@use 'variables' as *;
+@use 'header';
+@use 'about-lore';
+@use 'games';
+@use 'about-game';
+@use 'npcs';
+@use 'footer';
+
+@font-face {
+    font-family: Godzilla_MovieFont;
+    src: url(../../assets/fonts/GvkGodzilla-BWoaG.ttf);
+}
+
+@font-face {
+    font-family: BebasNeue;
+    src: url(../../assets/fonts/BebasNeue-Regular.ttf);
+}
+
+@mixin title($fontSize: 40px) {
+    font-family: Godzilla_MovieFont, sans-serif;
+    font-size: $fontSize;
+    color: $mainTextColor;
+    letter-spacing: calc($fontSize * .05);
+    transition: color .2s ease, transform .2s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        transition: color .2s ease, transform .2s ease;
+        color: $linkTextColor;
+    }
+}
+
+@mixin text($fontSize: 24px) {
+    font-family: BebasNeue, sans-serif;
+    font-size: $fontSize;
+    color: $secondaryTextColor;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $backgroundColor;
+    cursor: default;
+}
+
+.text--big {
+    @include text(28px);
+}
+
+.text {
+    @include text;
+}
+
+.text--small {
+    @include text(20px);
+}
+
+.title--big {
+    @include title(56px);
+}
+
+.title {
+    @include title;
+}
+
+.title--small {
+    @include title(32px);
+}
+
+.link-text {
+    @include text(18px);
+    color: $linkTextColor;
+    text-decoration: underline;
+}
+
+.banner {
+    img {
+        max-width: 100vw;
+    }
+}

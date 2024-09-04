@@ -1,0 +1,52 @@
+@use 'variables' as *;
+
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: $backgroundColor;
+    z-index: 1;
+
+    img {
+        max-width: 32px;
+        margin: 6px 0
+    }
+
+    &__menu {
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+
+        &__link {
+            margin: 0 24px;
+
+            a {
+                text-decoration: none;
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@mixin mobile {}
+
+@media screen and #{$breakMobile} {
+    .header {
+        &__menu {
+            &__link {
+                margin: 0 12px;
+
+                .title--small {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
